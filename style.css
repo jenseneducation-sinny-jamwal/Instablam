@@ -1,0 +1,111 @@
+
+body {
+    font-family: 'Courier New', Courier, monospace;;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /*--For responsive design--*/
+
+  @media (min-width: 768px) {
+    .container {
+      display: grid;
+      grid-template-columns: 200px 1fr 200px;
+      grid-template-rows: auto 1fr auto;
+  
+    }
+  }
+  
+  header {
+    grid-column: span 3;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.4em;
+    background-color: rgb(29, 31, 32);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  main {
+    height: 100vh;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+    
+  
+  
+  nav {
+    background-color: rgb(153, 149, 143);
+    padding: 10px;
+  }
+   
+  aside {
+    padding: 20px;
+    background-color: rgb(153, 149, 143);;
+  }
+  
+  footer {
+    grid-column: span 3;
+    padding: 30px;
+    text-align: left;
+    font-size: 1em;
+    background-color: rgb(245, 248, 239);
+    color: black;
+  }
+  
+  h1 {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  #camera--trigger{
+    width: 200px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 30px;
+    border: none;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 50px;
+    left: calc(50% - 100px);
+    overflow: hidden;
+}
+ #camera--view,  #camera--output{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+   height: auto !important;
+    
+
+    
+}
+#camera--sensor {
+    display: none;
+  }
+.taken{
+    height: 350px!important;
+    width: 400px!important;
+    transition: all 0.5s ease-in;
+    border: solid 3px white;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+    top: 100px;
+    right: 350px;
+    z-index: 1;
+} 
+
+#test,#reset,.save {
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    font-weight: 400;
+}

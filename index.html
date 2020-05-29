@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-icon" sizes="180x180" href="images/apple-icon.png"> 
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <title>Instablam</title>
+</head>
+<body class="container">
+    <header>Instablam</header>
+    <nav>
+        <button id="test">Subscribe Insta</button>
+    </nav>
+    <!-- Camera -->
+    <main>
+    <div id="camera">
+        <!-- Camera sensor the Canvas for drawing image -->
+        <canvas id="camera--sensor"></canvas>
+        <!-- Camera view -->
+        <video id="camera--view" autoplay playsinline></video>
+        <!-- Camera output -->
+        <img src="//:0" alt="" id="camera--output">
+        <!-- Camera button --> 
+        <button id="camera--trigger">Take a picture</button>
+       
+    </div>
+</main>
+<aside>
+    <div class = "controls">
+    <p>
+        <label for="brightness">Bright</label>
+        <input id="brightness" name="brightness" type="range"  min =-100 max=100 value=0>
+       </p>
+     <p>  
+        <label for="hue">Hue</label>
+        <input id="hue" name="hue" type="range" min="0" max="300" value="0">
+       </p>  
+    <p>
+        <label for="contrast">Contrast</label>
+        <input id="contrast" name="contrast" type="range" min="-20" max="20" value="0">
+      </p>
+      
+    <p>
+        <label for="vibrance">Vibrance</label>
+        <input id="vibrance" name="vibrance" type="range" min="0" max="400" value="0">
+     </p>
+
+    <p>
+        <label for="sepia">Sepia</label>
+        <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
+
+       </p>
+    <p>
+        <button id="reset">Revert</button>
+       </p>
+    <p>
+        <a href="#" id="download" download>
+            <button class="save">Download</button></a>
+     </p>
+
+</div> 
+
+</aside>
+<footer>@CopyRightsReserved</footer>
+   
+<!-- Reference to your JavaScript file -->
+   
+<script  type="module" src="js/main.js"></script>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+</body>
+</html>
