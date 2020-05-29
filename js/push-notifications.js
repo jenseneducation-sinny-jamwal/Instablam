@@ -34,7 +34,7 @@ export default () => {
         return outputArray
     }
 
-    //Skickar vår endpoint för att användas på servern
+    // Sends our enpoint to use on the server Skickar 
     async function saveSubscription(subscription) {
         const url = 'http://localhost:3000/notifications/save';
 
@@ -51,9 +51,8 @@ export default () => {
     document.querySelector('#test').addEventListener('click', (event) => {
         event.srcElement.disabled = true;
 
-        //Hämtar eventuell subscription och ifall vi har en så gör vi en unsubscribe
-        //Ifall vi inte har subscription så börjar vi prenumerera på notiser och skickar till servern
-        //Vår subscription
+        // get the subscriptions /unsubscribed
+        //our subscription
         servicew.pushManager.getSubscription().then(async (subscription) => {
             if (subscription) {
                 subscription.unsubscribe(); //Sluta prenumerera på push notiser
