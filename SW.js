@@ -2,19 +2,31 @@ self.addEventListener('install', event => {
     console.log('SW installed at: ', new Date().toLocaleTimeString());
     event.waitUntil(
         caches.open('v1').then((cache) => {
-            return cache.addAll(['index.html',
-                                'style.css',
-                                'main.js',
-                                'offline.html'
-                                ])
+            return cache.addAll(['/index.html',
+                                '/style.css',
+                                'js/main.js',
+                                '/offline.html'])
         })
     );
     self.skipWaiting();
 });
 
+
 self.addEventListener('activate', event => {
     console.log('SW activated at: ', new Date().toLocaleTimeString());
+    event.waitUntil(
+        caches.keys()
+        .then(function(keys){
+            return Promise.all(keys.filter(function(key){
+                return key !== 'v1';
+            }).map(function(key){
+                return caches.delete(key);
+            
+            }));
+
+        }));
 });
+
 
 self.addEventListener('fetch', event => {
     event.respondWith(
@@ -34,24 +46,25 @@ self.addEventListener('fetch', event => {
 });
 
 
-//Lyssnar efter push notiser
-self.addEventListener('push', (event) => {
-    if (event.data) {
-        createNotification(event.data.text());
-    }
-})
+// //Lyssnar efter push notiser
+// self.addEventListener('push', (event) => {
+//     if (event.data) {
+//         createNotification(event.data.text());
+//     }
+// })
 
-//Skapar en notifikation med Web notifications API
-const createNotification = (text) => {
-    self.registration.showNotification('INSTABLAM! Get Photo', {
-        body: text,
-        icon: 'images/apple-icon.png'
-    })
-}
+// //Skapar en notifikation med Web notifications API
+// const createNotification = (text) => {
+//     self.registration.showNotification('INSTABLAM! Get Photo', {
+//         body: text,
+//         icon: 'images/apple-icon.png'
+//     })
+// }
 
 async function updateCache(request) {
     return fetch(request)
     .then((response) => {
+        console.log(response);
         
         if(response) {
             return caches.open('v1')

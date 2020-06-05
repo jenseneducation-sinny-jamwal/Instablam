@@ -1,5 +1,5 @@
 
-import { requestNotificationPermission, createNotification } from './notifications.js';
+import { requestNotificationPermission , createNotification } from './notifications.js';
 import push from './push-notifications.js';
 
 
@@ -95,7 +95,7 @@ function createDownload() {
 
   function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/SW.js')
+      navigator.serviceWorker.register('../SW.js')
       .then((registration) => { 
         console.log('Registered service worker')
         push();
@@ -104,6 +104,9 @@ function createDownload() {
     }
   }
   
+ 
+ 
+ 
   registerServiceWorker();
-  //createNotification();
+  createNotification();
   requestNotificationPermission();
